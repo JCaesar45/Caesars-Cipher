@@ -1,0 +1,24 @@
+** start of script.js **
+
+function rot13(str) {
+  return str.replace(/[A-Z]/g, function(char) {
+    // Convert character to its ASCII code
+    const code = char.charCodeAt(0);
+    // For uppercase A-Z: 65-90
+    // Shift by 13, wrap around if necessary
+    if (code >= 65 && code <= 90) {
+      return String.fromCharCode(((code - 65 + 13) % 26) + 65);
+    }
+    // If not uppercase alphabet, return as is
+    return char;
+  });
+}
+
+// Test cases
+console.log(rot13("SERR PBQR PNZC")); // Should output: FREE CODE CAMP
+console.log(rot13("SERR CVMMN!"));    // Should output: FREE PIZZA!
+console.log(rot13("SERR YBIR?"));     // Should output: FREE LOVE?
+console.log(rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.")); // THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
+
+** end of script.js **
+
